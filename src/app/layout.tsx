@@ -1,4 +1,6 @@
 import "./globals.css";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -15,7 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body
+        className={`${montserrat.className} grid min-h-screen`}
+        style={{ gridTemplateRows: "auto 1fr auto" }}
+      >
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

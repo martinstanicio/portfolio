@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav className="flex flex-col gap-4 bg-black p-5 text-white">
-      <h1 className="text-center text-3xl font-bold">Martín Stanicio</h1>
-      <ul className="flex justify-around font-semibold">
+    <nav>
+      <h1>Martín Stanicio</h1>
+      <ul>
         <li>
           <Link href="/">Home</Link>
         </li>

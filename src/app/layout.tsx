@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { Montserrat } from "next/font/google";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const font = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -17,10 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.className} grid min-h-screen`}
-        style={{ gridTemplateRows: "auto 1fr auto" }}
-      >
+      <body className={font.className}>
         <Nav />
         {children}
         <Footer />

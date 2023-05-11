@@ -1,3 +1,4 @@
+import "normalize.css";
 import "./globals.css";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";

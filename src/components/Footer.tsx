@@ -3,13 +3,19 @@ export default function Footer() {
     <footer>
       <ul>
         <li>
-          <a href="https://www.linkedin.com/in/martinstanicio/">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/martinstanicio/" target="_blank">
+            LinkedIn
+          </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/martinstanicio">Instagram</a>
+          <a href="https://www.instagram.com/martinstanicio" target="_blank">
+            Instagram
+          </a>
         </li>
         <li>
-          <a href="https://www.github.com/martinstanicio">GitHub</a>
+          <a href="https://www.github.com/martinstanicio" target="_blank">
+            GitHub
+          </a>
         </li>
       </ul>
       <p>Martín Stanicio © {new Date().getFullYear()}</p>

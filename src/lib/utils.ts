@@ -4,3 +4,7 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export function removeExtension(filename: string) {
+  return filename.substring(0, filename.lastIndexOf(".")) || filename;
+}

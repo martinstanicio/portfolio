@@ -15,7 +15,7 @@ export default function Languages({ className, ...props }: Props) {
       <ul className="space-y-2">
         {languages.map(({ property, value }, i) => (
           <li key={i} className="flex items-baseline justify-between">
-            <span className="rounded bg-primary px-2 text-primary-foreground">
+            <span className="rounded bg-primary px-2 text-primary-foreground shadow">
               {property}
             </span>
             <span>{value}</span>

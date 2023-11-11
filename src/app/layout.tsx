@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
 import Sidebar from "@/components/sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -28,8 +29,10 @@ export default function RootLayout({
           "flex min-h-screen justify-between gap-12",
         )}
       >
-        <Sidebar />
-        <main>{children}</main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Sidebar />
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

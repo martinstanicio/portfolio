@@ -15,7 +15,7 @@ import { Button } from "./ui/button";
 
 export type Props = React.HTMLAttributes<HTMLDivElement>;
 
-export default function Navbar({ className, ...props }: Props) {
+export default function Menu({ className, ...props }: Props) {
   const links = [
     { label: "Home", href: "#home", icon: HomeIcon },
     { label: "Work Experience", href: "#experience", icon: ActivityLogIcon },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
-import Navbar from "@/components/navbar";
+import Menu from "@/components/menu";
 import Sidebar from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Sidebar />
           <main>{children}</main>
-          <Navbar />
+          <Menu />
         </ThemeProvider>
       </body>
     </html>

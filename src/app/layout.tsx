@@ -30,7 +30,12 @@ export default function RootLayout({
           "flex min-h-screen justify-between gap-12",
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Sidebar />
           <main>{children}</main>
           <Menu />

@@ -24,7 +24,7 @@ export default function Avatar({
         className="absolute overflow-hidden rounded-full object-cover object-center"
       />
       {available && (
-        <div className="absolute bottom-3 right-3 aspect-square w-6 rounded-full bg-green-500"></div>
+        <div className="absolute bottom-[6%] right-[6%] aspect-square w-1/6 rounded-full bg-green-500"></div>
       )}
     </div>
   );

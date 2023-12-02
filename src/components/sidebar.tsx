@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 
+import { languages } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 import About from "./about";
@@ -9,9 +10,11 @@ import SidebarButtons from "./sidebar-buttons";
 import Skills from "./skills";
 import { Separator } from "./ui/separator";
 
-export type Props = React.HTMLAttributes<HTMLDivElement>;
+export type Props = React.HTMLAttributes<HTMLDivElement> & {
+  lang: (typeof languages)[number];
+};
 
-export default function Sidebar({ className, ...props }: Props) {
+export default function Sidebar({ className, lang, ...props }: Props) {
   const sections = [Profile, About, Languages, Skills, SidebarButtons] as const;
 
   return (
@@ -24,7 +27,7 @@ export default function Sidebar({ className, ...props }: Props) {
     >
       {sections.map((Section, i, array) => (
         <Fragment key={i}>
-          <Section />
+          <Section lang={lang} />
           {i < array.length - 1 && <Separator />}
         </Fragment>
       ))}

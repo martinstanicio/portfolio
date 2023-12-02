@@ -1,18 +1,24 @@
 ---
 import "@fontsource-variable/inter";
 
-import Menu from "@/components/menu";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import Menu from "@/components/menu.astro";
 import Sidebar from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { languages } from "@/i18n/ui";
 import "@/styles/globals.css";
 
 const title = "Martín Stanicio | Web Developer";
 const description = "";
 const keywords = ["portfolio", "web developer", "web designer", "bilingual"];
-const url = process.env.VERCEL_URL || "https://martinstanicio.com";
+const url = Astro.url;
+
+export type Props = { lang: (typeof languages)[number] };
+
+const { lang } = Astro.props;
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -31,14 +37,16 @@ const url = process.env.VERCEL_URL || "https://martinstanicio.com";
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="flex min-h-screen justify-between gap-12">
-    <Sidebar />
+    <Sidebar lang={lang} />
 
     <main><slot /></main>
 
-    <Menu>
-      <ThemeToggle client:load />
+    <Menu lang={lang}>
+      <LanguageSwitcher slot="language-switcher" lang={lang} client:load />
+      <ThemeToggle slot="theme-toggle" lang={lang} client:load />
     </Menu>
   </body>
 </html>

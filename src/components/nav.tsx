@@ -6,17 +6,28 @@ import {
   RulerHorizontalIcon,
 } from "@radix-ui/react-icons";
 
+import { languages } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
+
 import { Button } from "./ui/button";
 
-export type Props = React.HTMLAttributes<HTMLDivElement>;
+export type Props = React.HTMLAttributes<HTMLDivElement> & {
+  lang: (typeof languages)[number];
+};
 
-export default function Nav(props: Props) {
+export default function Nav({ lang, ...props }: Props) {
+  const t = useTranslations(lang);
+
   const links = [
-    { label: "Home", href: "#home", icon: HomeIcon },
-    { label: "Work Experience", href: "#experience", icon: ActivityLogIcon },
-    { label: "Education", href: "#education", icon: RulerHorizontalIcon },
-    { label: "Portfolio", href: "#portfolio", icon: BackpackIcon },
-    { label: "Contact", href: "#contact", icon: ChatBubbleIcon },
+    { label: t("nav.home"), href: "#home", icon: HomeIcon },
+    { label: t("nav.experience"), href: "#experience", icon: ActivityLogIcon },
+    {
+      label: t("nav.education"),
+      href: "#education",
+      icon: RulerHorizontalIcon,
+    },
+    { label: t("nav.portfolio"), href: "#portfolio", icon: BackpackIcon },
+    { label: t("nav.contact"), href: "#contact", icon: ChatBubbleIcon },
   ];
 
   return (

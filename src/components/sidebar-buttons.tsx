@@ -1,18 +1,24 @@
 import { DownloadIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 
+import { languages } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 import { cn } from "@/lib/utils";
 
 import { Button } from "./ui/button";
 
-export type Props = React.HTMLAttributes<HTMLDivElement>;
+export type Props = React.HTMLAttributes<HTMLDivElement> & {
+  lang: (typeof languages)[number];
+};
 
-export default function SidebarButtons({ className, ...props }: Props) {
+export default function SidebarButtons({ className, lang, ...props }: Props) {
+  const t = useTranslations(lang);
+
   return (
     <section className={cn("flex gap-4", className)} {...props}>
       <Button className="flex-grow" asChild>
         <a href="/cv.pdf" target="_blank">
           <DownloadIcon className="mr-2" />
-          Download CV
+          {t("cvDownload")}
         </a>
       </Button>
       <Button size="icon" asChild>

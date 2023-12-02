@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import type { languages } from "@/i18n/ui";
+import { cn } from "@/lib/utils";
+
+import Nav from "./nav";
+
+export type Props = HTMLAttributes<"section"> & {
+  lang: (typeof languages)[number];
+};
+
+const { lang, class: className, ...props } = Astro.props;
+---
+
+<section
+  class={cn(
+    "sticky top-0 flex h-screen flex-col justify-between gap-16 overflow-y-auto bg-secondary p-6 text-secondary-foreground",
+    className,
+  )}
+  {...props}
+>
+  <slot name="language-switcher" />
+
+  <Nav lang={lang} className="self-center" />
+
+  <slot name="theme-toggle" />
+</section>

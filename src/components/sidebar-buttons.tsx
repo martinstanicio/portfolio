@@ -18,6 +18,7 @@ export default function SidebarButtons({ className, ...props }: Props) {
       <Button size="icon" asChild>
         <a href="https://www.linkedin.com/in/martinstanicio/" target="_blank">
           <LinkedInLogoIcon />
+          <span className="sr-only">LinkedIn</span>
         </a>
       </Button>
     </section>

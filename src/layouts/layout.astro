@@ -1,0 +1,70 @@
+---
+import "@fontsource-variable/inter";
+
+import Menu from "@/components/menu";
+import Sidebar from "@/components/sidebar";
+import { ThemeToggle } from "@/components/theme-toggle";
+import "@/styles/globals.css";
+
+const title = "Martín Stanicio | Web Developer";
+const description = "";
+const keywords = ["portfolio", "web developer", "web designer", "bilingual"];
+const url = process.env.VERCEL_URL || "https://martinstanicio.com";
+---
+
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(",")} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body class="flex min-h-screen justify-between gap-12">
+    <Sidebar />
+
+    <main><slot /></main>
+
+    <Menu>
+      <ThemeToggle client:load />
+    </Menu>
+  </body>
+</html>
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>

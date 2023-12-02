@@ -1,7 +1,6 @@
-"use client";
-
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
+
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +11,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const [theme, setTheme] = useState<"light" | "dark" | "system">("light");
+
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setTheme(isDarkMode ? "dark" : "light");
+  }, []);
+
+  useEffect(() => {
+    const isDark =
+      theme === "dark" ||
+      (theme === "system" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+  }, [theme]);
 
   return (
     <DropdownMenu>

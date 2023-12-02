@@ -1,16 +1,19 @@
 {
   "endOfLine": "lf",
   "plugins": [
+    "prettier-plugin-astro",
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
   ],
-  "importOrder": [
-    "^react$",
-    "^(?:next|next/(.*))$",
-    "^contentlayer/(.*)$",
-    "^@/(.*)$",
-    "^[./]"
-  ],
+  "importOrder": ["^react$", "^@/(.*)$", "^[./]"],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

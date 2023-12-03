@@ -28,6 +28,8 @@
   }
 
   .dark {
+    color-scheme: dark;
+
     --background: 0 0% 0%;
     --foreground: 0 0% 65%;
     --foreground-contrast: 0 0% 90%;

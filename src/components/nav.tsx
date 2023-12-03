@@ -35,7 +35,7 @@ export default function Nav({ lang, ...props }: Props) {
       <ul className="space-y-8">
         {links.map(({ label, href, icon: Icon }, i) => (
           <li key={i}>
-            <Button variant="ghost" size="icon" asChild>
+            <Button variant="link" size="icon" asChild>
               <a href={href}>
                 <Icon className="h-5 w-5" />
                 <span className="sr-only">{label}</span>

@@ -12,6 +12,8 @@ export const ui = {
 
     avatarAlt: "Profile picture",
 
+    "menu.title": "Menu",
+
     "nav.home": "Home",
     "nav.experience": "Work Experience",
     "nav.education": "Education",
@@ -43,6 +45,8 @@ export const ui = {
     position: "Desarrollador web",
 
     avatarAlt: "Foto de perfil",
+
+    "menu.title": "Menú",
 
     "nav.home": "Inicio",
     "nav.experience": "Experiencia laboral",

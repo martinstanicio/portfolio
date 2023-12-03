@@ -20,7 +20,7 @@ export default function Sidebar({ className, lang, ...props }: Props) {
   return (
     <section
       className={cn(
-        "sticky top-0 h-screen w-full max-w-sm space-y-8 overflow-y-auto bg-secondary p-12 text-secondary-foreground",
+        "sticky top-0 h-screen w-full max-w-sm space-y-8 overflow-y-auto bg-secondary p-8 text-secondary-foreground sm:p-12",
         className,
       )}
       {...props}

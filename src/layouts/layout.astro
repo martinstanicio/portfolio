@@ -3,6 +3,7 @@ import "@fontsource-variable/inter";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
 import Menu from "@/components/menu.astro";
+import MobileControls from "@/components/mobile-controls";
 import Sidebar from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { languages } from "@/i18n/ui";
@@ -39,12 +40,14 @@ const { lang } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="flex min-h-screen justify-between gap-12">
-    <Sidebar lang={lang} />
+  <body class="flex min-h-screen justify-between gap-12 max-xl:flex-col">
+    <MobileControls lang={lang} className="xl:hidden" client:load />
+
+    <Sidebar lang={lang} className="max-xl:hidden" />
 
     <main><slot /></main>
 
-    <Menu lang={lang}>
+    <Menu lang={lang} class="max-xl:hidden">
       <LanguageSwitcher slot="language-switcher" lang={lang} client:load />
       <ThemeToggle slot="theme-toggle" lang={lang} client:load />
     </Menu>

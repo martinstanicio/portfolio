@@ -40,7 +40,7 @@ const { lang } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="flex min-h-screen justify-between gap-12 max-xl:flex-col">
+  <body class="flex min-h-screen gap-12 max-xl:flex-col xl:justify-between">
     <MobileControls lang={lang} className="xl:hidden" client:load />
 
     <Sidebar lang={lang} className="max-xl:hidden" />

@@ -15,16 +15,16 @@ export default function Languages({ className, lang, ...props }: Props) {
   ] as const;
 
   return (
-    <section className={cn("space-y-4", className)} {...props}>
+    <section className={cn("space-y-6", className)} {...props}>
       <h2>{t("languages.title")}</h2>
 
-      <ul className="space-y-2">
+      <ul className="space-y-3">
         {languages.map(({ property, value }, i) => (
-          <li key={i} className="flex items-baseline justify-between">
+          <li key={i} className="flex items-baseline justify-between gap-2">
             <span className="rounded bg-primary px-2 text-primary-foreground shadow">
               {property}
             </span>
-            <span>{value}</span>
+            <span className="text-right">{value}</span>
           </li>
         ))}
       </ul>

@@ -6,17 +6,24 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { languageNames, languages } from "@/i18n/ui";
+import { cn } from "@/lib/utils";
 
 export type Props = {
   lang: (typeof languages)[number];
+  isWide?: boolean;
 };
 
-export function LanguageSwitcher({ lang }: Props) {
+export function LanguageSwitcher({ lang, isWide = false }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <span className="uppercase">{lang}</span>
+        <Button
+          variant="outline"
+          size={isWide ? "default" : "icon"}
+          className={cn(isWide && "flex w-full gap-4")}
+        >
+          <span className="font-bold uppercase">{lang}</span>
+          {isWide && <span>{languageNames[lang]}</span>}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

@@ -11,12 +11,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { languages } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
+import { cn } from "@/lib/utils";
 
 export type Props = {
   lang: (typeof languages)[number];
+  isWide?: boolean;
 };
 
-export function ThemeToggle({ lang }: Props) {
+export function ThemeToggle({ lang, isWide = false }: Props) {
   const t = useTranslations(lang);
   const [theme, setTheme] = useState<"light" | "dark" | "system">("light");
 
@@ -36,10 +38,15 @@ export function ThemeToggle({ lang }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <SunIcon className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <MoonIcon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Button
+          variant="outline"
+          size={isWide ? "default" : "icon"}
+          className={cn(isWide && "flex w-full gap-4")}
+        >
+          <SunIcon className="h-5 w-5 rotate-0 scale-100 transition-all dark:absolute dark:-rotate-90 dark:scale-0" />
+          <MoonIcon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:static dark:rotate-0 dark:scale-100" />
           <span className="sr-only">{t("theme.toggle")}</span>
+          {isWide && <span>{t(`theme.${theme}`)}</span>}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
